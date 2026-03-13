@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>isGTPdown?</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: background-color 0.3s;
+    }
+
+    body.down { background-color: #dc3545; color: #fff; }
+    body.up { background-color: #28a745; color: #fff; }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .message {
+      font-size: 1.8rem;
+      max-width: 600px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .subtitle {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1.5rem;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>isGTPdown?</h1>
+  <div class="message" id="message"></div>
+  <div class="subtitle" id="subtitle"></div>
+  <footer>Refresh the page to check again</footer>
+
+  <script>
+    const isDown = Math.random() < 0.5;
+
+    if (isDown) {
+      document.body.classList.add('down');
+      document.getElementById('message').textContent = 'Yes, GTP is down.';
+      document.getElementById('subtitle').textContent = 'Go grab a coffee ☕';
+    } else {
+      document.body.classList.add('up');
+      document.getElementById('message').textContent = 'No, GTP is not down.';
+      document.getElementById('subtitle').textContent = 'Go back to work 💼';
+    }
+  </script>
+</body>
+</html>
